@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rBody;
+    public Animator animate;
 
     [SerializeField]
-    float moveSpeed = 0;
+    float moveSpeed = 500;
 
 
     float horizontal = 0;
@@ -25,12 +26,13 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-
-
+        animate.SetInteger("Vertical", (int)vertical);
+        animate.SetInteger("Horizontal", (int)horizontal);
     }
 
     private void FixedUpdate()
     {
-        rBody.MovePosition(transform.position + new Vector3(horizontal * moveSpeed * Time.fixedDeltaTime, 0, vertical * moveSpeed * Time.fixedDeltaTime));
+        rBody.velocity = new Vector3(horizontal * moveSpeed * Time.deltaTime, rBody.velocity.y, vertical * moveSpeed * Time.deltaTime);
     }
+
 }
