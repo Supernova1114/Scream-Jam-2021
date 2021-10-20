@@ -25,7 +25,7 @@ public class FadeCloseToCam : MonoBehaviour
         {
             float alphaPercent = Mathf.Clamp( ((sprite.transform.position - transform.position).magnitude / fadeDistance) + offset, 0.0f, 1.0f);
             
-            print(alphaPercent);
+            //print(alphaPercent);
 
             sprite.color = new Color(255, 255, 255, alphaPercent);
         }

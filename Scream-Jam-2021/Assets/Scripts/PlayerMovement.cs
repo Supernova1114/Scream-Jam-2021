@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
     float vertical = 0;
 
     [SerializeField]
+    private float gravityFactor = 1;
 
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
+        Physics.gravity = new Vector3(0, -9.81f * gravityFactor, 0);
     }
 
     void Update()
