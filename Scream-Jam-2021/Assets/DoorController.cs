@@ -8,6 +8,8 @@ public class DoorController : MonoBehaviour
     UnityEngine.UI.Image canvasImage;
     [SerializeField]
     private Transform teleportDestination;
+    [SerializeField]
+    private Collider newCameraBounds;
 
     [SerializeField][Range(1, 100)]
     private int fadeSmooth;
@@ -18,16 +20,6 @@ public class DoorController : MonoBehaviour
 
     private static bool isTeleporting = false;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -53,8 +45,10 @@ public class DoorController : MonoBehaviour
 
         }
 
-        //teleport player to specified location
+        //teleport player to specified location and update camera bounds
         collision.transform.position = teleportDestination.position;
+        CamController.instance.SetBounds(newCameraBounds);
+        CamController.instance.SetPosition(teleportDestination.position);
 
         //let player fall onto floor
         collision.GetComponent<Rigidbody>().constraints = 

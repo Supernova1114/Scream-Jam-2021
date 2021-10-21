@@ -37,4 +37,13 @@ public class PlayerMovement : MonoBehaviour
         rBody.velocity = new Vector3(horizontal * moveSpeed * Time.deltaTime, rBody.velocity.y, vertical * moveSpeed * Time.deltaTime);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        //if on "Environment" layer
+        if (collision.gameObject.layer == 3)
+        {
+            //play bumping into wall sound
+        }
+    }
+
 }
