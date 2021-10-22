@@ -20,23 +20,14 @@ public class DoorController : MonoBehaviour
 
     private static bool isTeleporting = false;
 
-    [SerializeField]
-    private bool isLocked = false;
-    [SerializeField]
-    private int lockAmount = 0;
-
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player") && isTeleporting == false)
         {
-            if (isLocked == false)
-            {
-                isTeleporting = true;
+            isTeleporting = true;
 
-                StartCoroutine("BeginTeleport", collision);
-            }
-            
+            StartCoroutine("BeginTeleport", collision);
         }
     }
 
@@ -83,15 +74,6 @@ public class DoorController : MonoBehaviour
         collision.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
         isTeleporting = false;
-    }
-
-    public void DecreaseLock()
-    {
-        lockAmount--;
-        if (lockAmount <= 0)
-        {
-            isLocked = false;
-        }
     }
 
 
