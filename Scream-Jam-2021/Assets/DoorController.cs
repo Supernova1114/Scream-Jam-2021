@@ -33,6 +33,9 @@ public class DoorController : MonoBehaviour
 
     IEnumerator BeginTeleport(Collider collision)
     {
+        //play door open sound
+        AudioManager.instance.Play("Door_Open");
+
         //freeze movement
         collision.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
@@ -45,6 +48,7 @@ public class DoorController : MonoBehaviour
 
         }
 
+
         //teleport player to specified location and update camera bounds
         collision.transform.position = teleportDestination.position;
         CamController.instance.SetBounds(newCameraBounds);
@@ -55,6 +59,8 @@ public class DoorController : MonoBehaviour
             RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
         yield return new WaitForSeconds(waitBetweenFades);
+
+        AudioManager.instance.Play("Door_Close");
 
         //fade in screen
         for (int i = 100; i >= 0; i -= fadeSmooth)

@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             //play bumping into wall sound
+            AudioManager.instance.Play("Bump");
         }
     }
 
