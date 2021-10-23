@@ -43,7 +43,7 @@ public class DoorController : MonoBehaviour
     IEnumerator BeginTeleport(Collider collision)
     {
         //play door open sound
-        AudioManager.instance.Play("Door_Open");
+        AudioManager.instance.Play("Door-Open");
 
         //freeze movement
         collision.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -69,7 +69,7 @@ public class DoorController : MonoBehaviour
 
         yield return new WaitForSeconds(waitBetweenFades);
 
-        AudioManager.instance.Play("Door_Close");
+        AudioManager.instance.Play("Door-Close");
 
         //fade in screen
         for (int i = 100; i >= 0; i -= fadeSmooth)

@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float gravityFactor = 1;
 
+    //Step sound cooldown
+    [SerializeField]
+    private float stepSoundInterval = 0;
+    private float stepSoundCooldown = 0;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -30,6 +35,47 @@ public class PlayerMovement : MonoBehaviour
 
         animate.SetInteger("Vertical", (int)vertical);
         animate.SetInteger("Horizontal", (int)horizontal);
+
+        if (new Vector2(rBody.velocity.x, rBody.velocity.z).magnitude > 0.1f)
+        {
+            if (stepSoundCooldown < Time.time)
+            {
+
+                int randomNum = Random.Range(1, 7);
+
+                switch (randomNum)
+                {
+                    case 1:
+                        AudioManager.instance.Play("Step-1");
+                        break;
+                    case 2:
+                        AudioManager.instance.Play("Step-2");
+                        break;
+                    case 3:
+                        AudioManager.instance.Play("Step-3");
+                        break;
+                    case 4:
+                        AudioManager.instance.Play("Step-4");
+                        break;
+                    case 5:
+                        AudioManager.instance.Play("Step-5");
+                        break;
+                    case 6:
+                        AudioManager.instance.Play("Step-6");
+                        break;
+
+                }
+
+                stepSoundCooldown = Time.time + stepSoundInterval;
+            }
+        }
+
+        if (stepSoundCooldown > Time.time)
+        {
+            stepSoundCooldown -= Time.deltaTime;
+        }
+
+
     }
 
     private void FixedUpdate()

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField]
-    private DoorController doorController;
 
     private bool isColliding = false;
 
