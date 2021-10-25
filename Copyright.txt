@@ -13,3 +13,7 @@ Copyright : https://creativecommons.org/publicdomain/zero/1.0/
 Title : footsteps - wood & stairs 01
 Link : https://freesound.org/people/Anthousai/sounds/398782/
 Copyright : https://creativecommons.org/publicdomain/zero/1.0/
+
+Title : Lever_Small_On_Off
+Link : https://freesound.org/people/LamaMakesMusic/sounds/403560/
+Copyright : https://creativecommons.org/publicdomain/zero/1.0/

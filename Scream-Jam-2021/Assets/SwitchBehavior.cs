@@ -14,6 +14,9 @@ public class SwitchBehavior : MonoBehaviour
         if (isFlipped == false)
         {
             isFlipped = true;
+
+            AudioManager.instance.Play("Switch");
+
             doorController.DecreaseLock();
 
         }
