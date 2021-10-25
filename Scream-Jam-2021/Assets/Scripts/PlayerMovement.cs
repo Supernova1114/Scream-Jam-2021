@@ -30,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //testing
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CamController.instance.Shake();
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 

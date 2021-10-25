@@ -1747,6 +1747,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4109939349852448316, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
   m_PrefabInstance: {fileID: 4109939350021427382}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &387069401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387069400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
 --- !u!4 &404831388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1525825151239247616, guid: 3f9d3a1f0436ffb46ba2f7aa9cd9af9c, type: 3}
@@ -4921,6 +4936,94 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCameraObj: {fileID: 387069400}
   defaultCameraBounds: {fileID: 1766511016}
+  impulseSource: {fileID: 1451523687}
+--- !u!114 &1451523687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451523685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: b7acaf8a2861aa344a05f8bcb669da5c, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.3998581
+          value: 0.3912368
+          inSlope: -1.8684608
+          outSlope: -1.8684608
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.08809445
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -0.13304308
+          outSlope: -0.13304308
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.23630773
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0.3
+      m_SustainTime: 0.2
+      m_DecayTime: 0.4
+      m_ScaleWithImpact: 0
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 878.06
+    m_PropagationSpeed: 343
 --- !u!1001 &1487101057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9260,7 +9363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2494426801909615398, guid: 8f355048b8f29344687916eaa6ae6be4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.28
+      value: -13.14
       objectReference: {fileID: 0}
     - target: {fileID: 2494426801909615398, guid: 8f355048b8f29344687916eaa6ae6be4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9729,7 +9832,7 @@ PrefabInstance:
     - target: {fileID: 4109939349852448315, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
       propertyPath: m_BoundingVolume
       value: 
-      objectReference: {fileID: 246708107}
+      objectReference: {fileID: 1766511016}
     - target: {fileID: 4109939349852448316, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
       propertyPath: m_Name
       value: CM vcam1

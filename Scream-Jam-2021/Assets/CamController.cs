@@ -13,6 +13,8 @@ public class CamController : MonoBehaviour
     private GameObject virtualCameraObj;
     [SerializeField]
     private Collider defaultCameraBounds;
+    [SerializeField]
+    private Cinemachine.CinemachineImpulseSource impulseSource;
 
     private Cinemachine.CinemachineConfiner cinemachineConfiner;
     private Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
@@ -43,6 +45,11 @@ public class CamController : MonoBehaviour
     public void SetPosition(Vector3 position)
     {
         cinemachineVirtualCamera.ForceCameraPosition(position, cinemachineVirtualCamera.transform.rotation);
+    }
+
+    public void Shake()
+    {
+        impulseSource.GenerateImpulse();
     }
 }
 
