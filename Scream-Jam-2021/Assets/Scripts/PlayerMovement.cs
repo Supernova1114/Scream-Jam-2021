@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private float stepSoundInterval = 0;
     private float stepSoundCooldown = 0;
 
+    private bool smoothRotateFlag = true;
+    [SerializeField]
+    private float smoothRotateInterval = 0.05f;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -30,6 +34,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (smoothRotateFlag)
+            {
+                smoothRotateFlag = false;
+                StartCoroutine("SmoothRotate", 90);
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (smoothRotateFlag)
+                {
+                    smoothRotateFlag = false;
+                    StartCoroutine("SmoothRotate", -90);
+                }
+            }
+        }
+
         //testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -86,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rBody.velocity = new Vector3(horizontal * moveSpeed * Time.deltaTime, rBody.velocity.y, vertical * moveSpeed * Time.deltaTime);
+
+        rBody.velocity = transform.rotation * new Vector3(horizontal * moveSpeed * Time.deltaTime, rBody.velocity.y, vertical * moveSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -98,5 +124,23 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.instance.Play("Bump");
         }
     }
+
+    IEnumerator SmoothRotate(int addRotation)
+    {
+        
+        //FIXME fuckl aisjldlasjldkasjldkjlasjldjalsjdlkasmldmalckjiefnkdnlckn  help
+        
+        
+        for (int i = 0; i < Mathf.Abs(addRotation) / 2.0f; i++)
+        {
+            Vector3 rotation = transform.rotation.eulerAngles;
+
+            transform.rotation = Quaternion.Euler(rotation.x, rotation.y + (2f * Mathf.Clamp(addRotation, -1, 1)), rotation.z);
+            yield return new WaitForSeconds(smoothRotateInterval);
+        }
+
+        smoothRotateFlag = true;
+    }
+
 
 }

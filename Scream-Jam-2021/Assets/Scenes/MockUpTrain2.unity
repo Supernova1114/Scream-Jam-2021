@@ -11990,7 +11990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2494426801909615398, guid: 8f355048b8f29344687916eaa6ae6be4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.16
+      value: 50.5
       objectReference: {fileID: 0}
     - target: {fileID: 2494426801909615398, guid: 8f355048b8f29344687916eaa6ae6be4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12467,7 +12467,7 @@ PrefabInstance:
     - target: {fileID: 4109939349852448315, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
       propertyPath: m_BoundingVolume
       value: 
-      objectReference: {fileID: 1766511016}
+      objectReference: {fileID: 2033886607}
     - target: {fileID: 4109939349852448316, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
       propertyPath: m_Name
       value: CM vcam1
