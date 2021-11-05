@@ -104,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
             stepSoundCooldown -= Time.deltaTime;
         }
 
-
     }
 
     private void FixedUpdate()
