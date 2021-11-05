@@ -46,9 +46,6 @@ public class CamController : MonoBehaviour
     {
         cinemachineVirtualCamera.ForceCameraPosition(position, cinemachineVirtualCamera.transform.rotation);
     }
-
-    
-
     public void Shake()
     {
         impulseSource.GenerateImpulse();
