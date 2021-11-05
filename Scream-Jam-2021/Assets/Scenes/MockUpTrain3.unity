@@ -954,6 +954,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66793403}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &72211887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4109939349939043763, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
+  m_PrefabInstance: {fileID: 4109939350021427382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &72211891
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72211887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damping: 0
 --- !u!1 &116066615
 GameObject:
   m_ObjectHideFlags: 0
@@ -17869,6 +17887,10 @@ PrefabInstance:
       propertyPath: stepSoundInterval
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3409678571655268189, guid: b8ad1fd5366205c48b417aa30298fef1, type: 3}
+      propertyPath: smoothRotateInterval
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3409678571655268190, guid: b8ad1fd5366205c48b417aa30298fef1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -18151,8 +18173,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 485568048}
     - target: {fileID: 4109939349852448317, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 485568048}
+    - target: {fileID: 4109939349852448317, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.3333334
+      value: 1.7790698
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc313d46012bd44a9b9142bf19c6f34, type: 3}
