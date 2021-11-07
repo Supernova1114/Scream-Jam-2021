@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Scream-Jam-2021/Assets/Scenes/TestScene/Lightmap-2_comp_dir.png.meta
 guid: 3d519d5ca26ab1347ad6b8bc29970c12
+=======
+guid: 462e22e0184af2446b95e0e4c4f1e983
+>>>>>>> main:Scream-Jam-2021/Assets/Scenes/UnderwaterTestWorld/Lightmap-10_comp_dir.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
