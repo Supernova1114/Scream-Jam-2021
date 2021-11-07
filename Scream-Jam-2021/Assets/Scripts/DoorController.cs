@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField]
-    UnityEngine.UI.Image canvasImage;
     [SerializeField]
     private Transform teleportDestination;
     [SerializeField]
@@ -24,6 +23,11 @@ public class DoorController : MonoBehaviour
     private bool isLocked = false;
     [SerializeField]
     private int lockAmount = 0;
+
+    [SerializeField]
+    private bool isSceneChange = false;
+    [SerializeField]
+    private string nextSceneName;
 
 
     private void OnTriggerEnter(Collider collision)
@@ -49,40 +53,38 @@ public class DoorController : MonoBehaviour
         collision.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         //fade screen to black
-        for (int i = 0; i <= 100; i += fadeSmooth)
+        CamController.instance.StartCoroutine("FadeToBlack", true);
+        yield return new WaitUntil(() => CamController.instance.GetIsFading() == false);
+
+        if (isSceneChange == false)
         {
-            yield return new WaitForSeconds(fadeInterval);
-            canvasImage.color = new Color(0, 0, 0, i / 100.0f);
-            //print(i);
+            //teleport player to specified location and update camera bounds
+            collision.transform.position = teleportDestination.position;
+            CamController.instance.SetBounds(newCameraBounds);
+            CamController.instance.SetPosition(teleportDestination.position);
 
+            //let player fall onto floor
+            collision.GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+            yield return new WaitForSeconds(waitBetweenFades);
+
+            AudioManager.instance.Play("Door-Close");
+
+            //fade in screen
+            CamController.instance.StartCoroutine("FadeToBlack", false);
+            yield return new WaitUntil(() => CamController.instance.GetIsFading() == false);
+
+            //unfreeze movement
+            collision.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+
+            isTeleporting = false;
         }
-
-
-        //teleport player to specified location and update camera bounds
-        collision.transform.position = teleportDestination.position;
-        CamController.instance.SetBounds(newCameraBounds);
-        CamController.instance.SetPosition(teleportDestination.position);
-
-        //let player fall onto floor
-        collision.GetComponent<Rigidbody>().constraints = 
-            RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-
-        yield return new WaitForSeconds(waitBetweenFades);
-
-        AudioManager.instance.Play("Door-Close");
-
-        //fade in screen
-        for (int i = 100; i >= 0; i -= fadeSmooth)
+        else
         {
-            yield return new WaitForSeconds(fadeInterval);
-            canvasImage.color = new Color(0, 0, 0, i / 100.0f);
-            //print(i);
+            SceneManager.LoadScene(sceneName: nextSceneName);
         }
-
-        //unfreeze movement
-        collision.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-
-        isTeleporting = false;
+        
     }
 
     public void DecreaseLock()
