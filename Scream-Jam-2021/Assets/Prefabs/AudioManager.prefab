@@ -43,4 +43,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0daa9bc74087695429c37d308f05744e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Bump
+    clip: {fileID: 8300000, guid: 70ffc03aa41732b4089b80ffd319c1d3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Door-Open
+    clip: {fileID: 8300000, guid: 9bba4b93e49b6f8458c7657d8160a59b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Door-Close
+    clip: {fileID: 8300000, guid: 12915051eb0fc6b4a8a99d12066d8040, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step-1
+    clip: {fileID: 8300000, guid: d1a92b69c4604534f8ff42e85041f613, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step-2
+    clip: {fileID: 8300000, guid: 32bd769109e48bc4589766934fea09e7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step-3
+    clip: {fileID: 8300000, guid: 7b9fe5c71d5aadb48ab539775f865b01, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step-4
+    clip: {fileID: 8300000, guid: 4099cf7b679a4f94084d651abd4ba3a2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step-5
+    clip: {fileID: 8300000, guid: 854815bbbced60948a4a0430515e1c38, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Step-6
+    clip: {fileID: 8300000, guid: eeb67b1a4a802cb4b92681e438b1376c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Switch
+    clip: {fileID: 8300000, guid: 8f00b8952a823e042aa1331ba282d5f8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

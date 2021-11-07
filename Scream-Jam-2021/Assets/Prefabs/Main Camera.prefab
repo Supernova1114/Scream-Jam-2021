@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2494426801909615400}
   - component: {fileID: 2494426801909615397}
   - component: {fileID: 2494426801909615396}
+  - component: {fileID: 1451523686}
+  - component: {fileID: 1451523687}
+  - component: {fileID: 1451523688}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44,7 +47,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.23891956, g: 0.7334008, b: 0.8584906, a: 1}
+  m_BackGroundColor: {r: 0.23921569, g: 0.73333335, b: 0.85882354, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -61,7 +64,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -131,7 +134,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f060d68d03e15843898a04fbfc21ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 6
-  offset: -0.75
+  fadeDistance: 1.71
+  offset: -0.54
   sprites:
   - {fileID: 0}
+--- !u!114 &1451523686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494426801909615401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd22d2d082289f4d908cdde45601b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCameraObj: {fileID: 0}
+  defaultCameraBounds: {fileID: 0}
+  impulseSource: {fileID: 1451523687}
+  canvasImage: {fileID: 0}
+  fadeSmooth: 10
+  fadeInterval: 0.05
+  fadeInOnSceneChange: 1
+--- !u!114 &1451523687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494426801909615401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: b7acaf8a2861aa344a05f8bcb669da5c, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 5
+    m_RepeatMode: 0
+    m_Randomize: 0
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.3998581
+          value: 0.3912368
+          inSlope: -1.8684608
+          outSlope: -1.8684608
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.08809445
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -0.13304308
+          outSlope: -0.13304308
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.23630773
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0.1
+      m_SustainTime: 0.7
+      m_DecayTime: 0.4
+      m_ScaleWithImpact: 0
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+--- !u!114 &1451523688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494426801909615401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2

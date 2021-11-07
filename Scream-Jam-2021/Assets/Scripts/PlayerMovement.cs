@@ -34,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
+        //rotate camera -90 or 90 degrees
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (smoothRotateFlag)
             {
                 smoothRotateFlag = false;
-                StartCoroutine("SmoothRotate", 90);
+                StartCoroutine("SmoothRotate", 1);
             }
         }
         else
@@ -50,16 +50,18 @@ public class PlayerMovement : MonoBehaviour
                 if (smoothRotateFlag)
                 {
                     smoothRotateFlag = false;
-                    StartCoroutine("SmoothRotate", -90);
+                    StartCoroutine("SmoothRotate", -1);
                 }
             }
         }
 
-        //testing
+
+        //testing camera shake
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CamController.instance.Shake();
         }
+
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -67,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
         animate.SetInteger("Vertical", (int)vertical);
         animate.SetInteger("Horizontal", (int)horizontal);
 
+
+        //Step sounds randomizer
         if (new Vector2(rBody.velocity.x, rBody.velocity.z).magnitude > 0.1f)
         {
             if (stepSoundCooldown < Time.time)
@@ -108,7 +112,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rBody.velocity = transform.rotation * new Vector3(horizontal * moveSpeed * Time.deltaTime, rBody.velocity.y, vertical * moveSpeed * Time.deltaTime);
+        //move player
+        rBody.velocity = transform.rotation * new Vector3(horizontal * moveSpeed * Time.fixedDeltaTime, rBody.velocity.y, vertical * moveSpeed * Time.fixedDeltaTime);
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -121,20 +127,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator SmoothRotate(int addRotation)
+    
+    //smooth rotate player and camera
+    IEnumerator SmoothRotate(int direction)
     {
         
-        //FIXME fuckl aisjldlasjldkasjldkjlasjldjalsjdlkasmldmalckjiefnkdnlckn  help
-        //      Master Wu once said:
-        //          "To fix code, thou shall delete code, and thy shall rewrite them"
-        //                          - Probably Master Wu, The Art of Coding Vol. 2
-        
-        
-        for (int i = 0; i < Mathf.Abs(addRotation) / 2.0f; i++)
+        for (int i = 0; i < 45; i++)
         {
             Vector3 rotation = transform.rotation.eulerAngles;
 
-            transform.rotation = Quaternion.Euler(rotation.x, rotation.y + (2f * Mathf.Clamp(addRotation, -1, 1)), rotation.z);
+            transform.rotation = Quaternion.Euler(rotation.x, rotation.y + (2 * direction), rotation.z);
             yield return new WaitForSeconds(smoothRotateInterval);
         }
 

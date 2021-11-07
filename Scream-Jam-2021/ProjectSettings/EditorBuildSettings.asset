@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 98827bf0d2ac293419fd4ecf886548b2
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MockUpTrain3.unity
+    guid: b9c4b05a046bb4b4ab55ba6830190a51
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 044fa450ee619044bbce5e475be07ca5
   m_configObjects: {}
