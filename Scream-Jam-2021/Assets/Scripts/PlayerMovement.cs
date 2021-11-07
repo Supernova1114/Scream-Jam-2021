@@ -94,9 +94,7 @@ public class PlayerMovement : MonoBehaviour
                     case 6:
                         AudioManager.instance.Play("Step-6");
                         break;
-
                 }
-
                 stepSoundCooldown = Time.time + stepSoundInterval;
             }
         }
@@ -106,12 +104,10 @@ public class PlayerMovement : MonoBehaviour
             stepSoundCooldown -= Time.deltaTime;
         }
 
-
     }
 
     private void FixedUpdate()
     {
-
         rBody.velocity = transform.rotation * new Vector3(horizontal * moveSpeed * Time.deltaTime, rBody.velocity.y, vertical * moveSpeed * Time.deltaTime);
     }
 
@@ -129,6 +125,9 @@ public class PlayerMovement : MonoBehaviour
     {
         
         //FIXME fuckl aisjldlasjldkasjldkjlasjldjalsjdlkasmldmalckjiefnkdnlckn  help
+        //      Master Wu once said:
+        //          "To fix code, thou shall delete code, and thy shall rewrite them"
+        //                          - Probably Master Wu, The Art of Coding Vol. 2
         
         
         for (int i = 0; i < Mathf.Abs(addRotation) / 2.0f; i++)
