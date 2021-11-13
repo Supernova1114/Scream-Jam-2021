@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Scream-Jam-2021/Assets/Prefabs/CanvasFade.prefab.meta
 guid: 9018110ba2e9dc041883169072107094
 PrefabImporter:
+=======
+guid: 044fa450ee619044bbce5e475be07ca5
+DefaultImporter:
+>>>>>>> modelingtest:Scream-Jam-2021/Assets/Scenes/TestScene.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
