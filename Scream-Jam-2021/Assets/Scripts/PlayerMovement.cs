@@ -113,7 +113,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //move player
-        rBody.velocity = transform.rotation * new Vector3(horizontal * moveSpeed * Time.fixedDeltaTime, rBody.velocity.y, vertical * moveSpeed * Time.fixedDeltaTime);
+        Vector3 temp = new Vector3(horizontal, 0, vertical).normalized * moveSpeed * Time.fixedDeltaTime;
+        rBody.velocity = transform.rotation * new Vector3(temp.x, rBody.velocity.y, temp.z);
+        //print(rBody.velocity);
 
     }
 
