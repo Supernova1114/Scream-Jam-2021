@@ -27,21 +27,13 @@ public class BackdropManager : MonoBehaviour
     {
         for (int i = 0; i < backdrops.Length; i++)
         {
-
-            
             if (backdrops[i].transform.localPosition.x <= backdropReset.localPosition.x)
             {
-
                 backdrops[i].transform.localPosition = new Vector3(backdrops[previousBackdrop].transform.localPosition.x + spawnOffset, 0, 0);
 
                 previousBackdrop = i;
             }
-
             backdrops[i].transform.localPosition += new Vector3(moveSpeed * Time.deltaTime, 0, 0);
-
-
-
         }
-
     }
 }
