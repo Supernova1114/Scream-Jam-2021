@@ -54,7 +54,7 @@ A working computer lol
 
 
 ## Contributions
-- [@wluxie](https://github.com/wluxie)
-- [@Supernova1114](https://github.com/Supernova1114)
-- [@12max345](https://github.com/12max345)
-- [@21gomez](https://github.com/21gomez)
+
+| [![wluxie](https://avatars.githubusercontent.com/u/49565505?v=3&s=144)](https://github.com/wluxie) | [![Supernova1114](https://avatars.githubusercontent.com/u/55326068?v=3&s=144)](https://github.com/Supernova1114) | [![12max345](https://avatars.githubusercontent.com/u/62104473?v=3&s=144)](https://github.com/12max345) | <img alt="gomez" src="https://avatars.githubusercontent.com/u/83387589?v=3" width="145" height="145"> |
+|     :---:      |     :---:      |     :---:      |     :---:      |
+| [@wluxie](https://github.com/wluxie)  | [@Supernova1114](https://github.com/Supernova1114) | [@12max345](https://github.com/12max345) | [@21gomez](https://github.com/21gomez)
