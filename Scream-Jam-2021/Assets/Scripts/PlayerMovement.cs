@@ -22,10 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private float stepSoundInterval = 0;
     private float stepSoundCooldown = 0;
 
-    private bool smoothRotateFlag = true;
-    [SerializeField]
-    private float smoothRotateInterval = 0.05f;
-
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -34,27 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //rotate camera -90 or 90 degrees
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (smoothRotateFlag)
-            {
-                smoothRotateFlag = false;
-                StartCoroutine("SmoothRotate", 1);
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (smoothRotateFlag)
-                {
-                    smoothRotateFlag = false;
-                    StartCoroutine("SmoothRotate", -1);
-                }
-            }
-        }
-
 
         //testing camera shake
         if (Input.GetKeyDown(KeyCode.Space))
@@ -129,21 +104,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
-    //smooth rotate player and camera
-    IEnumerator SmoothRotate(int direction)
-    {
-        
-        for (int i = 0; i < 45; i++)
-        {
-            Vector3 rotation = transform.rotation.eulerAngles;
-
-            transform.rotation = Quaternion.Euler(rotation.x, rotation.y + (2 * direction), rotation.z);
-            yield return new WaitForSeconds(smoothRotateInterval);
-        }
-
-        smoothRotateFlag = true;
-    }
 
 
 }
