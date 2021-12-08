@@ -8,7 +8,7 @@
 <tr>
 <td>
   
-Originally a Scream jam project but we missed the deadline so it turned into a full project ¯\_(ツ)_/¯
+Originally a Scream jam project but we missed the deadline so it turned into a full project ¯\\\_(ツ)_/¯
 
 ![](Scream-Jam-2021/preview.png)
 <p align="right">
@@ -29,7 +29,7 @@ Originally a Scream jam project but we missed the deadline so it turned into a f
 
 ## Future Features
 
-|         🔰Features         |   Implementation   |
+|          Features          |   Implementation   |
 | -------------------------- | :----------------: |
 | smth                       |         ✔️         |
 | more smth                  |         ❌         |
