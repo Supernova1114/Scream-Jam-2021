@@ -9,6 +9,7 @@
 <td>
   
 Originally a Scream jam project but we missed the deadline so it turned into a full project ¯\\\_(ツ)_/¯
+Scream jams are horror-themed game jams made to encourage devs to get their spook on! From straight-up scares to interactive fiction and roleplaying games, scream jams encourage all creators to try making something spooky every few months, often based upon an optional theme or season.
 
 ![](Scream-Jam-2021/preview.png)
 <p align="right">
@@ -23,16 +24,19 @@ Originally a Scream jam project but we missed the deadline so it turned into a f
 
 ## Todo
 - [X] Reorganize
-- [ ] Optimize
+- [X] Fix lightmap issues
+- [X] Move from blender renders to pro-builder
+- [ ] Map #1 / Scene #1
+- [ ] Finish up train cars
 
 
 
 ## Future Features
 
-|          Features          |   Implementation   |
-| -------------------------- | :----------------: |
-| smth                       |         ✔️         |
-| more smth                  |         ❌         |
+|          Features                   |   Implementation   |
+| ----------------------------------- | :----------------: |
+|       Looping trains                |         ✔️         |
+|  Possible flip nightmare dimension  |         ❌         |
 
 
 
@@ -42,7 +46,7 @@ A working computer lol
 
 
 ## Installation
-
+No released date yet
 
 
 ## Built With
