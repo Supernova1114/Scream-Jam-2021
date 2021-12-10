@@ -11,7 +11,7 @@
 Originally a Scream jam project but we missed the deadline so it turned into a full project ¯\\\_(ツ)_/¯  
 Scream jams are horror-themed game jams made to encourage devs to get their spook on! From straight-up scares to interactive fiction and roleplaying games, scream jams encourage all creators to try making something spooky every few months, often based upon an optional theme or season.
 
-![](Scream-Jam-2021/preview.png)
+<img src="Scream-Jam-2021/preview.gif" width=100%/>
 <p align="right">
   <sub>(Preview)</sub>
 </p>
