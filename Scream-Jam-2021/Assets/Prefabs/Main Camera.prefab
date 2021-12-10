@@ -62,7 +62,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 50
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2494426801909615401}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f060d68d03e15843898a04fbfc21ec3, type: 3}
   m_Name: 
@@ -156,7 +156,7 @@ MonoBehaviour:
   canvasImage: {fileID: 0}
   fadeSmooth: 10
   fadeInterval: 0.05
-  fadeInOnSceneChange: 1
+  fadeInOnSceneChange: 0
 --- !u!114 &1451523687
 MonoBehaviour:
   m_ObjectHideFlags: 0
