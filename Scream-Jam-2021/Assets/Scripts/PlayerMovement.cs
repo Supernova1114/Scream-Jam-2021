@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontal = 0;
     float vertical = 0;
 
+    private Vector3 facingDirection;
+
     [SerializeField]
     private float gravityFactor = 1;
 
@@ -40,6 +42,13 @@ public class PlayerMovement : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        //Change facing direction variable
+        Vector3 temp = new Vector3(horizontal, 0, vertical);        
+        if (temp.magnitude > 0)
+        {
+            facingDirection = temp;
+        }
 
         animate.SetInteger("Vertical", (int)vertical);
         animate.SetInteger("Horizontal", (int)horizontal);
@@ -96,14 +105,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if on "Environment" layer
-        if (collision.gameObject.layer == 3)
-        {
-            //play bumping into wall sound
-            AudioManager.instance.Play("Bump");
-        }
     }
 
+
+    public Vector3 GetFacingDirection()
+    {
+        return facingDirection;
+    }
 
 
 }

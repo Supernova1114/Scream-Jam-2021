@@ -39,12 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Backdrop
     uniqueID: 3775703567
     locked: 0
   - name: Player
     uniqueID: 2935224457
-    locked: 0
-  - name: Default
-    uniqueID: 0
     locked: 0

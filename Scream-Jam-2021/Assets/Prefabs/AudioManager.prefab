@@ -44,12 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Bump
-    clip: {fileID: 8300000, guid: 70ffc03aa41732b4089b80ffd319c1d3, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Door-Open
     clip: {fileID: 8300000, guid: 9bba4b93e49b6f8458c7657d8160a59b, type: 3}
     volume: 1
