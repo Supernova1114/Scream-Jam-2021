@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Scream-Jam-2021/Assets/Materials/Textures/Flesh/Flesh01_ao_4k.jpg.meta
+guid: 7a3865436a23499499fdeeecdb2f19cb
+=======
 guid: 3127cd8b68fce064f9b1cc692243d3de
+>>>>>>> jasper-rad-branch:Scream-Jam-2021/Assets/Materials/Textures/Flesh/Flesh01_diffuse_4k.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
