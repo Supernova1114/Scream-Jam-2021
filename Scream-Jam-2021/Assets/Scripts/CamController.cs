@@ -10,14 +10,15 @@ public class CamController : MonoBehaviour
     public static CamController instance;
 
     [SerializeField]
-    private GameObject virtualCameraObj;
+    private GameObject playerVCamObj;
     [SerializeField]
     private Collider defaultCameraBounds;
     [SerializeField]
     private Cinemachine.CinemachineImpulseSource impulseSource;
 
     private Cinemachine.CinemachineConfiner cinemachineConfiner;
-    private Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
+    private Cinemachine.CinemachineVirtualCamera playerVCam;
+
 
 
     //Fade-to-black controller-----------------------------
@@ -40,6 +41,7 @@ public class CamController : MonoBehaviour
 
     private void Start()
     {
+
         if (fadeInOnSceneChange == true)
         {
             canvasImage.color = new Color(0, 0, 0, 1);
@@ -50,25 +52,17 @@ public class CamController : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
     void Awake()
     {
         instance = this;
 
-        cinemachineConfiner = virtualCameraObj.GetComponent<Cinemachine.CinemachineConfiner>();
+        cinemachineConfiner = playerVCamObj.GetComponent<Cinemachine.CinemachineConfiner>();
         cinemachineConfiner.m_BoundingVolume = defaultCameraBounds;
 
-        cinemachineVirtualCamera = virtualCameraObj.GetComponent<Cinemachine.CinemachineVirtualCamera>();
-
-        
+        playerVCam = playerVCamObj.GetComponent<Cinemachine.CinemachineVirtualCamera>();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetBounds(Collider CameraBounds)
     {
@@ -77,7 +71,7 @@ public class CamController : MonoBehaviour
 
     public void SetPosition(Vector3 position)
     {
-        cinemachineVirtualCamera.ForceCameraPosition(position, cinemachineVirtualCamera.transform.rotation);
+        playerVCam.ForceCameraPosition(position, playerVCam.transform.rotation);
     }
 
     public void Shake()
@@ -118,6 +112,16 @@ public class CamController : MonoBehaviour
         isFading = false;
     }
 
+
+    public void LookAt(Transform transform)
+    {
+        playerVCam.LookAt = transform; 
+    }
+
+    public void Follow(Transform transform)
+    {
+        playerVCam.Follow = transform; 
+    }
 
     public bool GetIsFading()
     {

@@ -7,39 +7,68 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rBody;
     public Animator animate;
 
-    [SerializeField]
-    float moveSpeed = 500;
+    [SerializeField] float moveSpeed = 500;
+    [SerializeField] float sprintspeed = 1.2f;
+    private float sprint = 1f;
+    private bool isSprinting = false;
 
 
     float horizontal = 0;
     float vertical = 0;
 
+    Vector3 controlVector;
+
+    //Offset rotation for movement controls around y axis
+    private static Quaternion controlsOffset;
+
     private Vector3 facingDirection;
 
-    [SerializeField]
-    private float gravityFactor = 1;
+    [SerializeField] private float gravityFactor = 1;
 
     //Step sound cooldown
-    [SerializeField]
-    private float stepSoundInterval = 0;
+    [SerializeField] private float stepSoundInterval = 0;
     private float stepSoundCooldown = 0;
+
+    //Camera
+    Camera mainCamera;
+
+
+
+
+    // LINE BREAK--------------------------------------------------------------------
+
+
+
 
     void Start()
     {
+        mainCamera = FindObjectOfType<Camera>();
         rBody = GetComponent<Rigidbody>();
         Physics.gravity = new Vector3(0, -9.81f * gravityFactor, 0);
+        controlsOffset = transform.rotation;
+        
     }
 
     void Update()
     {
+        //Testing camera shake
+        CamShake();
 
-        //testing camera shake
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CamController.instance.Shake();
-        }
+        // Move Bob
+        Move();
+
+        // Step sounds randomizer
+        StepSound();
+    }
 
 
+
+    // LINE BREAK--------------------------------------------------------------------
+
+
+
+    private void Move()
+    {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
@@ -53,8 +82,29 @@ public class PlayerMovement : MonoBehaviour
         animate.SetInteger("Vertical", (int)vertical);
         animate.SetInteger("Horizontal", (int)horizontal);
 
+        if (Input.GetKey(KeyCode.LeftShift)){
+            if (StaminaBar.instance.CheckStamina() == 0)
+            {
+                sprint = 1;
+                isSprinting = false;
+            }
+            else 
+            {
+                sprint = sprintspeed;
+                isSprinting = true;
+                StaminaBar.instance.Sprinting();
+            }    
+        }
 
-        //Step sounds randomizer
+        if (Input.GetKeyUp(KeyCode.LeftShift)){
+            //reset
+            sprint = 1;
+            isSprinting = false;
+        }
+    }
+
+    private void StepSound()
+    {
         if (new Vector2(rBody.velocity.x, rBody.velocity.z).magnitude > 0.1f)
         {
             if (stepSoundCooldown < Time.time)
@@ -91,14 +141,24 @@ public class PlayerMovement : MonoBehaviour
         {
             stepSoundCooldown -= Time.deltaTime;
         }
+    }
 
+    private void CamShake()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CamController.instance.Shake();
+        }
     }
 
     private void FixedUpdate()
     {
         //move player
-        Vector3 temp = new Vector3(horizontal, 0, vertical).normalized * moveSpeed * Time.fixedDeltaTime;
-        rBody.velocity = transform.rotation * new Vector3(temp.x, rBody.velocity.y, temp.z);
+        Vector3 temp = new Vector3(horizontal, 0, vertical).normalized * (moveSpeed * sprint * Time.fixedDeltaTime);
+        
+        rBody.velocity = controlsOffset * new Vector3(temp.x, rBody.velocity.y, temp.z);
+
+
         //print(rBody.velocity);
 
     }
@@ -113,5 +173,9 @@ public class PlayerMovement : MonoBehaviour
         return facingDirection;
     }
 
+    public static void SetControlsOffset(float yAngle)
+    {
+        controlsOffset = Quaternion.Euler(0, yAngle, 0);
+    }
 
 }

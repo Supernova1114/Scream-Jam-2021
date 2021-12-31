@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Scream-Jam-2021/Assets/Scenes/PassengerCar/Global Volume Profile.asset.meta
 guid: 4d88eb792a00615418a114b0fdf9751c
 NativeFormatImporter:
+=======
+guid: 38c7ee3853ef378458babeb27c54f3b2
+PrefabImporter:
+>>>>>>> Cam-Branch:Scream-Jam-2021/Assets/Prefabs/NewTrainChair Variant.prefab.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 
