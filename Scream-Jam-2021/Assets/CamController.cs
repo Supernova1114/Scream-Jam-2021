@@ -41,6 +41,7 @@ public class CamController : MonoBehaviour
 
     private void Start()
     {
+        
 
         if (fadeInOnSceneChange == true)
         {
