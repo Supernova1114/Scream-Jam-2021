@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator animate;
 
     [SerializeField] float moveSpeed = 500;
-    [SerializeField] float sprintspeed = 1.2f;
+    [SerializeField] float sprintspeed = 2f;
+    [Range(1, 5)] [SerializeField] private int sprintCost = 5;
     private float sprint = 1f;
     private bool isSprinting = false;
 
@@ -92,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 sprint = sprintspeed;
                 isSprinting = true;
-                StaminaBar.instance.Sprinting();
+                StaminaBar.instance.Sprinting(sprintCost);
             }    
         }
 
