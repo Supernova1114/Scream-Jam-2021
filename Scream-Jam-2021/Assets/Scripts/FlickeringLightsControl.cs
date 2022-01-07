@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FlickeringLightsControl : MonoBehaviour
 {
-    [SerializeField] private Material lightsOn;
-    [SerializeField] private Material lightsOff;
-    Renderer matRenderer;
-    private bool flickering = false;
-    private float delay;
-    [SerializeField] private float rangeMin;
-    [SerializeField] private float rangeMax;
+    [SerializeField] private Material lightsOn; //Material for when light is on
+    [SerializeField] private Material lightsOff; //Material for when light is off
+    Renderer matRenderer; //This gameobject's mesh renderer
+    private bool shouldFlicker = true;
+    private float delay; //Delay between on and off state
+    [SerializeField] private float minimumDelay;
+    [SerializeField] private float maximumDelay; 
 
     
 
@@ -19,40 +19,31 @@ public class FlickeringLightsControl : MonoBehaviour
         matRenderer = GetComponent<Renderer>();
         matRenderer.enabled = true;
         matRenderer.sharedMaterial = lightsOn;
-    }
 
-
-
-    void Update()
-    {
-        if(flickering == false)
-        {
-            StartCoroutine(FlickerLights());
-        }
+        StartCoroutine(FlickerLights());
     }
 
 
 
     IEnumerator FlickerLights()
     {
-        flickering = true;
+        while (shouldFlicker)
+        {
+            LightControl(false, minimumDelay, maximumDelay);
+            yield return new WaitForSeconds(delay);
 
-        LightControl(false, rangeMin, rangeMax);
-        yield return new WaitForSeconds(delay);
-
-        LightControl(true, rangeMin, rangeMax);
-        yield return new WaitForSeconds(delay);
-
-        flickering = false;
+            LightControl(true, minimumDelay, maximumDelay);
+            yield return new WaitForSeconds(delay);
+        }
     }
 
 
-
-    private void LightControl(bool flag, float min, float max)
+    //Turns on or off light gameobject and sets delay for next state
+    private void LightControl(bool turnOn, float minDelay, float maxDelay)
     {
-        this.gameObject.GetComponent<Light>().enabled = flag;
+        gameObject.GetComponent<Light>().enabled = turnOn;
 
-        if(flag)
+        if(turnOn)
         {
             matRenderer.sharedMaterial = lightsOn;
         }
@@ -61,6 +52,6 @@ public class FlickeringLightsControl : MonoBehaviour
             matRenderer.sharedMaterial = lightsOff;
         }
 
-        delay = Random.Range(min, max);
+        delay = Random.Range(minDelay, maxDelay);
     } 
 }
