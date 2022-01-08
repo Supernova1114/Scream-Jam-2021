@@ -11,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float sprintspeed = 2f;
     [Range(1, 5)] [SerializeField] private int sprintCost = 5;
     private float sprint = 1f;
-    private bool isSprinting = false;
-
 
     float horizontal = 0;
     float vertical = 0;
@@ -87,12 +85,10 @@ public class PlayerMovement : MonoBehaviour
             if (StaminaBar.instance.CheckStamina() == 0)
             {
                 sprint = 1;
-                isSprinting = false;
             }
             else 
             {
                 sprint = sprintspeed;
-                isSprinting = true;
                 StaminaBar.instance.Sprinting(sprintCost);
             }    
         }
@@ -100,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift)){
             //reset
             sprint = 1;
-            isSprinting = false;
         }
     }
 
