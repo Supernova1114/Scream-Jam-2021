@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmbienceManager : MonoBehaviour
 {
-    private const int delayTime = 1;
+    public int delayTime;
     public AudioSource ambienceNoise;
     public AudioClip sceneStartSound;
 
