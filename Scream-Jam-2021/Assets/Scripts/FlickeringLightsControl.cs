@@ -25,7 +25,7 @@ public class FlickeringLightsControl : MonoBehaviour
 
 
 
-    IEnumerator FlickerLights()
+    private IEnumerator FlickerLights()
     {
         while (shouldFlicker)
         {
